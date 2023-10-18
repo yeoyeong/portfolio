@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+//비쥬얼 페이지
+//포폴 리스트 페이지
 
+import { Navigate, Route, Routes } from "react-router-dom";
+import Profile from "./app/Resume/profile/Profile";
+import Home from "./app/index/Home";
+import Skills from "./app/Resume/skills/Skills";
+import Resume from "./app/Resume/Resume";
+
+//
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="" element={<Home />} />
+      <Route path="/resume" element={<Resume />}>
+        <Route path="/resume" element={<Navigate to="profile" replace />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="skills" element={<Skills />} />
+      </Route>
+    </Routes>
   );
 }
 

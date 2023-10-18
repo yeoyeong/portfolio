@@ -1,0 +1,29 @@
+@import url(./font.css);
+
+:root {
+  --black :#000000;
+  --white:#ffffff;
+  --background:#5b659a;
+  --sub:#cdcdcd;
+  /* --neutral-gray-50 : #f1f1f1;
+  --neutral-gray-100 : #d4d4d4;
+  --neutral-gray-200 : #bfbfbf;
+  --neutral-gray-300 : #a1a1a1;
+  --neutral-gray-400 : #8f8f8f;
+  --neutral-gray-500 : #737373;
+  --neutral-gray-600 : #696969;
+  --neutral-gray-700 : #525252;
+  --neutral-gray-800 : #3f3f3f;
+  --neutral-gray-900 : #303030;
+  --primary-brown-Light : #fbf7f2;
+  --primary-brown-LightHover : #faf3eb;
+  --primary-brown-LightActive : #f4e7d6;
+  --primary-brown-Normal : #dbb27a;
+  --primary-brown-NormalHover : #c5a06e;
+  --primary-brown-NormalActive : #af8e62;
+  --primary-brown-Dark : #a4865c;
+  --primary-brown-DarkHover : #836b49;
+  --primary-brown-DarkActive : #635037;
+  --primary-brown-DarkActive : #4d3e2b;
+  --primary-brandinglize-blue: #0037FF; */
+  }
