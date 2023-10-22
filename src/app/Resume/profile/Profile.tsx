@@ -1,6 +1,7 @@
 import React from "react";
 import AppLayout from "../../../ui/common/layout/AppLayout";
 import styled from "styled-components";
+import { visibilityAnimationReverse } from "src/styles/animaition/fadeIn";
 
 const MyInfo = () => {
   return (
@@ -52,6 +53,7 @@ const MyPhoto = () => {
 };
 const InfoWrap = styled.section`
   margin-right: 162px;
+  animation: ${visibilityAnimationReverse} 0.4s forwards;
   h3 {
     color: #4023de;
     font-weight: 700;

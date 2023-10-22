@@ -6,6 +6,9 @@ import Profile from "./app/Resume/profile/Profile";
 import Home from "./app/index/Home";
 import Skills from "./app/Resume/skills/Skills";
 import Resume from "./app/Resume/Resume";
+import Portfolio from "./app/Portfolio/Portfolio";
+import Detail from "./app/Portfolio/Detail/Detail";
+import Contact from "./app/contact/Contact";
 
 //
 function App() {
@@ -17,6 +20,10 @@ function App() {
         <Route path="profile" element={<Profile />} />
         <Route path="skills" element={<Skills />} />
       </Route>
+      <Route path="/Portfolio" element={<Portfolio />}>
+        <Route path="/Portfolio/:id" element={<Detail />} />
+      </Route>
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   );
 }

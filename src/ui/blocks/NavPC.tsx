@@ -1,21 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { PC_NAV_DATA } from "../../data/navData";
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
 
 const NavPC = () => {
   const { pathname } = useLocation();
-  const NavStyle = (title: string) => {
-    if (pathname.indexOf(title) > 0)
-      return {
-        color: "var(--white)",
-      };
-    else return {};
-  };
 
+  const NavStyle = useCallback(
+    (title: string) => {
+      if (pathname === title)
+        return {
+          color: "var(--white)",
+        };
+      if (pathname.indexOf(title) > 0)
+        return {
+          color: "var(--white)",
+        };
+      else return {};
+    },
+    [pathname]
+  );
   return (
     <Container>
-      <h1>YEOYEONG</h1>
+      <h1>
+        <Link to="/" style={NavStyle("/")}>
+          YEOYEONG
+        </Link>
+      </h1>
       <ul>
         {PC_NAV_DATA.map((el, i) => (
           <li key={i}>
@@ -54,12 +65,15 @@ const Container = styled.nav`
   height: 100%;
   align-items: center;
   h1 {
-    font-weight: 700;
-    font-size: 22px;
-    color: var(--white);
     margin-top: 100px;
     margin-bottom: 74px;
-    text-align: center;
+    a {
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--sub);
+
+      text-align: center;
+    }
   }
   ul > li > ul > li {
     text-align: center;
