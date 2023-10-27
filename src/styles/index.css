@@ -5,6 +5,18 @@
   --white:#ffffff;
   --background:#5b659a;
   --sub:#cdcdcd;
+  --system-error-e100:#E46B6B;
+  --neutral-gray-50 : #f1f1f1;
+  --neutral-gray-100 : #d4d4d4;
+  --neutral-gray-200 : #bfbfbf;
+  --neutral-gray-300 : #a1a1a1;
+  --neutral-gray-400 : #8f8f8f;
+  --neutral-gray-500 : #737373;
+  --neutral-gray-600 : #696969;
+  --neutral-gray-700 : #525252;
+  --neutral-gray-800 : #3f3f3f;
+  --neutral-gray-900 : #303030;
+  --neutral-gray-1000: #171717;
   /* --neutral-gray-50 : #f1f1f1;
   --neutral-gray-100 : #d4d4d4;
   --neutral-gray-200 : #bfbfbf;

@@ -21,7 +21,8 @@ const ImageComponent = ({
           src={imageUrl}
           alt="이미지"
           style={{
-            backgroundColor: isLoaded ? "transparent" : "#f1f1f1",
+            // backgroundColor: isLoaded ? "transparent" : "#f1f1f1",
+            display: isLoaded ? "block" : "none",
           }}
           onLoad={handleImageLoad}
         />
