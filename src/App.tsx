@@ -9,6 +9,7 @@ import Resume from "./app/Resume/Resume";
 import Portfolio from "./app/Portfolio/Portfolio";
 import Detail from "./app/Portfolio/Detail/Detail";
 import Contact from "./app/contact/Contact";
+import PortfolioMain from "./app/Portfolio/PortfolioMain";
 
 //
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="skills" element={<Skills />} />
       </Route>
       <Route path="/Portfolio" element={<Portfolio />}>
+        <Route path="" element={<PortfolioMain />} />
         <Route path="/Portfolio/:id" element={<Detail />} />
       </Route>
       <Route path="/contact" element={<Contact />} />

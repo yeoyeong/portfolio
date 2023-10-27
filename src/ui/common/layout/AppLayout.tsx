@@ -2,17 +2,17 @@ import React, { useCallback, useEffect, useState } from "react";
 import GlobalStyle from "../../../styles/GlobalStyle";
 import styled from "styled-components";
 import NavPC from "../../blocks/NavPC";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
   const { pathname } = useLocation();
+  const { id } = useParams();
   // const [sectionNum, setSectionNum] = useState(0);
   const [lastExecutedTime, setLastExecutedTime] = useState(Date.now());
   const navigate = useNavigate();
 
   const onWheel = (e: React.WheelEvent<HTMLInputElement>) => {
     if (Date.now() - lastExecutedTime < 500) return;
-
     if (e.deltaY >= 0) {
       downScroll();
     } else {
@@ -20,22 +20,6 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
     }
     setLastExecutedTime(Date.now());
   };
-
-  // const onWheel = (e: React.WheelEvent<HTMLInputElement>) => {
-  //   if (!canExecute) return;
-
-  //   setCanExecute(false);
-
-  //   if (e.deltaY >= 0) {
-  //     downScroll();
-  //   } else {
-  //     upScroll();
-  //   }
-
-  //   setTimeout(() => {
-  //     setCanExecute(true);
-  //   }, 1500);
-  // };
 
   const downScroll = () => {
     if (pathname === "/") {
@@ -48,6 +32,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
       return navigate("/portfolio");
     }
     if (pathname.includes("portfolio")) {
+      if (id) return;
       return navigate("/contact");
     }
   };
@@ -60,7 +45,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
       return navigate("/resume/profile");
     }
     if (pathname.includes("portfolio")) {
-      console.log("?");
+      if (id) return;
       return navigate("/resume/skills");
     }
     if (pathname.includes("contact")) {

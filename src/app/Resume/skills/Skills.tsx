@@ -76,8 +76,9 @@ const Skills = () => {
             </li>
           </ul>
         </div>
+
         <div>
-          <h4>DevOps</h4>
+          <h4>AWS</h4>
           <ul>
             <li>
               <span>
@@ -100,6 +101,11 @@ const Skills = () => {
               </span>
               Cloud Front
             </li>
+          </ul>
+        </div>
+        <div>
+          <h4>DevOps</h4>
+          <ul>
             <li>
               <span>
                 <img src="/img/icon/notion_icon.svg" alt="notion_icon" />
@@ -156,15 +162,19 @@ const IconWrap = styled.ul`
     gap: 8px;
     li {
       text-align: center;
+      width: 70px;
       span {
         width: 70px;
         height: 70px;
-        border-radius: 50%;
+        /* border-radius: 50%; */
         display: flex;
         align-items: center;
         justify-content: center;
+        border-radius: 5px;
+        box-shadow: 0.1rem 0.1rem 0.3rem rgb(0 0 0 / 0.05),
+          0.1rem 0.1rem 0.7rem rgb(0 0 0 / 0.1);
         /* background-color: #3f23de78; */
-        border: 1px solid #27272778;
+        /* border: 1px solid #27272778; */
         img {
           width: 40px;
           margin: 0;
