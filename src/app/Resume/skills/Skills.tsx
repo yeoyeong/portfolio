@@ -1,4 +1,5 @@
 import React from "react";
+import ImageComponent from "src/components/ImageComponent";
 import { visibilityAnimationReverse } from "src/styles/animaition/fadeIn";
 import AppLayout from "src/ui/common/layout/AppLayout";
 import styled from "styled-components";
@@ -12,8 +13,8 @@ const Skills = () => {
           <ul>
             <li>
               <span>
-                <img
-                  src="/img/icon/typescript_icon.svg"
+                <ImageComponent
+                  imageUrl="/img/icon/typescript_icon.svg"
                   alt="typescript_icon"
                 />
               </span>
@@ -21,8 +22,8 @@ const Skills = () => {
             </li>
             <li>
               <span>
-                <img
-                  src="/img/icon/javascript_icon.svg"
+                <ImageComponent
+                  imageUrl="/img/icon/javascript_icon.svg"
                   alt="javascript_icon"
                 />
               </span>
@@ -35,31 +36,46 @@ const Skills = () => {
           <ul>
             <li>
               <span>
-                <img src="/img/icon/html_icon.svg" alt="html_icon" />
+                <ImageComponent
+                  imageUrl="/img/icon/html_icon.svg"
+                  alt="html_icon"
+                />
               </span>
               HTML
             </li>
             <li>
               <span>
-                <img src="/img/icon/css_icon.svg" alt="css_icon" />
+                <ImageComponent
+                  imageUrl="/img/icon/css_icon.svg"
+                  alt="css_icon"
+                />
               </span>
               CSS
             </li>
             <li>
               <span>
-                <img src="/img/icon/nextjs_icon.svg" alt="nextjs_icon" />
+                <ImageComponent
+                  imageUrl="/img/icon/nextjs_icon.svg"
+                  alt="nextjs_icon"
+                />
               </span>
               Next13
             </li>
             <li>
               <span>
-                <img src="/img/icon/react_icon.svg" alt="react_icon" />
+                <ImageComponent
+                  imageUrl="/img/icon/react_icon.svg"
+                  alt="react_icon"
+                />
               </span>
               React
             </li>
             <li>
               <span>
-                <img src="/img/icon/redux_icon.svg" alt="redux_icon" />
+                <ImageComponent
+                  imageUrl="/img/icon/redux_icon.svg"
+                  alt="redux_icon"
+                />
               </span>
               Redux
             </li>
@@ -70,7 +86,10 @@ const Skills = () => {
           <ul>
             <li>
               <span>
-                <img src="/img/icon/firebase_icon.svg" alt="firebase_icon" />
+                <ImageComponent
+                  imageUrl="/img/icon/firebase_icon.svg"
+                  alt="firebase_icon"
+                />
               </span>
               Firebase
             </li>
@@ -82,20 +101,26 @@ const Skills = () => {
           <ul>
             <li>
               <span>
-                <img src="/img/icon/aws_ec2_icon.svg" alt="ec2 아이콘" />
+                <ImageComponent
+                  imageUrl="/img/icon/aws_ec2_icon.svg"
+                  alt="ec2 아이콘"
+                />
               </span>
               EC2
             </li>
             <li>
               <span>
-                <img src="/img/icon/aws_s3_icon.svg" alt="aws_s3_icon" />
+                <ImageComponent
+                  imageUrl="/img/icon/aws_s3_icon.svg"
+                  alt="aws_s3_icon"
+                />
               </span>
               S3
             </li>
             <li>
               <span>
-                <img
-                  src="/img/icon/aws_clundfront_icon.svg"
+                <ImageComponent
+                  imageUrl="/img/icon/aws_clundfront_icon.svg"
                   alt="aws_clundfront_icon"
                 />
               </span>
@@ -108,19 +133,28 @@ const Skills = () => {
           <ul>
             <li>
               <span>
-                <img src="/img/icon/notion_icon.svg" alt="notion_icon" />
+                <ImageComponent
+                  imageUrl="/img/icon/notion_icon.svg"
+                  alt="notion_icon"
+                />
               </span>
               Notion
             </li>
             <li>
               <span>
-                <img src="/img/icon/github_icon.svg" alt="github_icon" />
+                <ImageComponent
+                  imageUrl="/img/icon/github_icon.svg"
+                  alt="github_icon"
+                />
               </span>
               GitHub
             </li>
             <li>
               <span>
-                <img src="/img/icon/figma_icon.svg" alt="figma_icon" />
+                <ImageComponent
+                  imageUrl="/img/icon/figma_icon.svg"
+                  alt="figma_icon"
+                />
               </span>
               Figma
             </li>

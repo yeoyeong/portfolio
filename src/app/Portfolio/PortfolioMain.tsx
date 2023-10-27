@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import ImageComponent from "src/components/ImageComponent";
 import { portfolioData } from "src/data/portfolioData";
 import styled from "styled-components";
 
@@ -20,7 +21,7 @@ const PortfolioMain = () => {
             <li key={title}>
               <Link to={"/portfolio/" + title}>
                 <div className="imageWrap">
-                  <img src={img} alt={title + "커버사진"} />
+                  <ImageComponent imageUrl={img} alt={title + "커버사진"} />
                 </div>
                 <p className="title">{title}</p>
                 <p className="make_year">
@@ -43,6 +44,7 @@ const Container = styled.div`
 `;
 const PortfolioContentsWrap = styled.ul`
   display: grid;
+  width: 100%;
   grid-template-columns: repeat(auto-fill, minmax(23%, 23%));
   grid-gap: 3% 1%;
   justify-content: center;
@@ -52,7 +54,6 @@ const PortfolioContentsWrap = styled.ul`
   align-items: center; */
   /* width: 100%; */
   li {
-    width: 100%;
     box-shadow: 0.1rem 0.1rem 0.3rem rgb(0 0 0 / 0.05),
       0.1rem 0.1rem 0.7rem rgb(0 0 0 / 0.1);
     border-radius: 5px;
@@ -62,6 +63,11 @@ const PortfolioContentsWrap = styled.ul`
     .imageWrap {
       height: 150px;
       overflow: hidden;
+      span {
+        width: 100%;
+        height: 150px;
+        background-color: red;
+      }
       img {
         width: 100%;
         object-fit: cover;
