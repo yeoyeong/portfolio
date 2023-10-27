@@ -46,7 +46,7 @@ const Detail = () => {
         <b>Front-end</b>
         <ul>
           {content.front_end.map((el, i) => (
-            <li>
+            <li key={i}>
               <p>
                 {el}
                 {content.front_end.length - 1 !== i && " / "}
@@ -57,7 +57,7 @@ const Detail = () => {
         <b>Deployment</b>
         <ul>
           {content.Deployment.map((el, i) => (
-            <li>
+            <li key={i}>
               <p>
                 {el}
                 {content.Deployment.length - 1 !== i && " /"}
@@ -73,7 +73,6 @@ const Detail = () => {
 export default Detail;
 
 const Container = styled.div`
-  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -93,8 +92,12 @@ const VisualArea = styled.div`
 `;
 
 const TextArea = styled.div`
+  p {
+    max-width: 60%;
+  }
   b {
     display: block;
+    max-width: 60%;
     font-weight: 700;
     margin-top: 8px;
     margin-bottom: 4px;
@@ -104,6 +107,7 @@ const TextArea = styled.div`
   }
   ul {
     display: flex;
+    flex-wrap: wrap;
     gap: 6px;
   }
 `;

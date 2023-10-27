@@ -57,10 +57,10 @@ const PortfolioContentsWrap = styled.ul`
       0.1rem 0.1rem 0.7rem rgb(0 0 0 / 0.1);
     border-radius: 5px;
     padding-bottom: 20px;
+    width: 100%;
     cursor: pointer;
     .imageWrap {
       height: 150px;
-      width: 100%;
       overflow: hidden;
       img {
         width: 100%;
