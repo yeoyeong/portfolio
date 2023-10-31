@@ -30,11 +30,23 @@ const Detail = () => {
         {content.link && (
           <>
             <b>Link</b>
-            <Link to={content.link}>{content.link}</Link>
+            {content.link ? (
+              <a rel="noopener noreferrer" href={content.link} target="_blank">
+                {content.link}
+              </a>
+            ) : (
+              <p>-</p>
+            )}
           </>
         )}
         <b>Github</b>
-        <Link to={content.github}>{content.github}</Link>
+        {content.github ? (
+          <a rel="noopener noreferrer" href={content.github} target="_blank">
+            {content.github}
+          </a>
+        ) : (
+          <p>-</p>
+        )}
         {content.framework && (
           <>
             <b>FrameWork</b>
@@ -92,8 +104,13 @@ const VisualArea = styled.div`
 `;
 
 const TextArea = styled.div`
+  max-width: 40%;
   p {
-    max-width: 60%;
+    font-size: 14px;
+  }
+  a {
+    color: #7070d2;
+    font-size: 14px;
   }
   b {
     display: block;
