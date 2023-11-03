@@ -10,17 +10,11 @@ export const sendMail = (
   valueReset: () => void
 ) => {
   e.preventDefault();
-  if (
-    !formData.email ||
-    !formData.from_name ||
-    !formData.sub_stance ||
-    !formData.title
-  ) {
+  if (!formData.email || !formData.from_name || !formData.sub_stance) {
     throw "빈칸을 입력해주세요";
   }
 
   const template: SendTamplateType = {
-    title: formData.title,
     email: formData.email,
     sub_stance: formData.sub_stance,
     from_name: formData.from_name,

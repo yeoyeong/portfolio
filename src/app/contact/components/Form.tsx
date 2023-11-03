@@ -3,20 +3,37 @@ import useInput from "src/hooks/useInput";
 import styled from "styled-components";
 import { sendMail } from "../utils/sendMail";
 
-const FormContact = () => {
-  const fromName = useInput("");
-  const title = useInput("");
-  const email = useInput("");
-  const subStance = useInput("");
+interface Props {
+  fromName: {
+    value: string;
+    byte: number;
+    onChange: (event: any) => void;
+    setValue: React.Dispatch<React.SetStateAction<string>>;
+    cutByLen: (e: any, limit: number) => void;
+  };
+  email: {
+    value: string;
+    byte: number;
+    onChange: (event: any) => void;
+    setValue: React.Dispatch<React.SetStateAction<string>>;
+    cutByLen: (e: any, limit: number) => void;
+  };
+  subStance: {
+    value: string;
+    byte: number;
+    onChange: (event: any) => void;
+    setValue: React.Dispatch<React.SetStateAction<string>>;
+    cutByLen: (e: any, limit: number) => void;
+  };
+}
+const FormContact = ({ fromName, email, subStance }: Props) => {
   const formData = {
-    title: title.value,
     email: email.value,
     sub_stance: subStance.value,
     from_name: fromName.value,
   };
   const valueReset = () => {
     fromName.setValue("");
-    title.setValue("");
     email.setValue("");
     subStance.setValue("");
   };
@@ -33,12 +50,6 @@ const FormContact = () => {
         }
       }}
     >
-      <input
-        type="text"
-        placeholder="메일 제목을 입력해주세요"
-        value={title.value}
-        onChange={title.onChange}
-      />
       <input
         type="text"
         placeholder="이름/회사명을 입력해주세요"
@@ -66,13 +77,14 @@ export default FormContact;
 
 const FormContainer = styled.form`
   display: flex;
-  flex-direction: column;
+  /* flex-direction: row; */
   justify-content: center;
   align-items: center;
-  /* width: 80%; */
+  flex-wrap: wrap;
+  width: 500px;
   gap: 10px;
   input {
-    width: 50%;
+    width: 49%;
     height: 48px;
     border: 1px solid var(--neutral-gray-100);
     border-radius: 5px;
@@ -80,7 +92,7 @@ const FormContainer = styled.form`
   }
   textarea {
     height: 300px;
-    width: 50%;
+    width: 100%;
     border: 1px solid var(--neutral-gray-100);
     border-radius: 5px;
     padding: 10px;

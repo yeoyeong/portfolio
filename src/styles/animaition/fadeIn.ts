@@ -8,3 +8,21 @@ export const visibilityAnimationReverse = keyframes`
      opacity: 1;
    }
  `;
+
+export const curtainAnimationLeft = keyframes`
+   to {
+    transform:translateX(-100%)
+   }
+ `;
+
+export const curtainAnimationRight = keyframes`
+to{
+  transform:translateX(100%)
+}
+`;
+
+export const IndexBoxAnimation = keyframes`
+to{
+  transform:translate(57%,-50%)
+}
+`;

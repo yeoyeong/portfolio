@@ -13,46 +13,46 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
   const navigate = useNavigate();
 
   const onWheel = (e: React.WheelEvent<HTMLInputElement>) => {
-    // if (Date.now() - lastExecutedTime < 500) return;
-    // if (e.deltaY >= 0) {
-    //   downScroll();
-    // } else {
-    //   upScroll();
-    // }
-    // setLastExecutedTime(Date.now());
+    if (Date.now() - lastExecutedTime < 500) return;
+    if (e.deltaY >= 0) {
+      downScroll();
+    } else {
+      upScroll();
+    }
+    setLastExecutedTime(Date.now());
   };
 
-  // const downScroll = () => {
-  //   if (pathname === "/") {
-  //     return navigate("/resume/profile");
-  //   }
-  //   if (pathname.includes("profile")) {
-  //     return navigate("/resume/skills");
-  //   }
-  //   if (pathname.includes("skills")) {
-  //     return navigate("/portfolio");
-  //   }
-  //   if (pathname.includes("portfolio")) {
-  //     if (id) return;
-  //     return navigate("/contact");
-  //   }
-  // };
+  const downScroll = () => {
+    // if (pathname === "/") {
+    //   return navigate("/resume/profile");
+    // }
+    if (pathname.includes("profile")) {
+      return navigate("/resume/skills");
+    }
+    if (pathname.includes("skills")) {
+      return navigate("/portfolio");
+    }
+    if (pathname.includes("portfolio")) {
+      if (id) return;
+      return navigate("/contact");
+    }
+  };
 
-  // const upScroll = () => {
-  //   if (pathname.includes("profile")) {
-  //     return navigate("/");
-  //   }
-  //   if (pathname.includes("skills")) {
-  //     return navigate("/resume/profile");
-  //   }
-  //   if (pathname.includes("portfolio")) {
-  //     if (id) return;
-  //     return navigate("/resume/skills");
-  //   }
-  //   if (pathname.includes("contact")) {
-  //     return navigate("/portfolio");
-  //   }
-  // };
+  const upScroll = () => {
+    if (pathname.includes("profile")) {
+      return navigate("/");
+    }
+    if (pathname.includes("skills")) {
+      return navigate("/resume/profile");
+    }
+    if (pathname.includes("portfolio")) {
+      if (id) return;
+      return navigate("/resume/skills");
+    }
+    // if (pathname.includes("contact")) {
+    //   return navigate("/portfolio");
+    // }
+  };
 
   useEffect(() => {
     console.log(contentsRef);

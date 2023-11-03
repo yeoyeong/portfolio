@@ -1,5 +1,3 @@
-import React from "react";
-import AppLayout from "../../../ui/common/layout/AppLayout";
 import styled from "styled-components";
 import { visibilityAnimationReverse } from "src/styles/animaition/fadeIn";
 
@@ -19,31 +17,29 @@ const MyInfo = () => {
           </p>
         </li>
         <li>
-          <p>GitHub</p>
-          <p>
-            <a
-              href="https://github.com/yeoyeong"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              https://github.com/yeoyeong
-            </a>
-            <br />
-            <a
-              href="https://github.com/jeelly"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              https://github.com/jeelly
-            </a>
-          </p>
-        </li>
-        <li>
           <p>Email</p>
           <p>
             <a href="mailto:yeoyyeong@gmail.com">yeoyyeong@gmail.com</a>
           </p>
         </li>
+        <IconWrap>
+          <div>
+            <a
+              href="https://github.com/yeoyeong"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              GITHUB
+            </a>
+            <a
+              href="https://yeoyeong.tistory.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              BLOG
+            </a>
+          </div>
+        </IconWrap>
       </ul>
     </InfoWrap>
   );
@@ -65,7 +61,7 @@ const InfoWrap = styled.section`
     margin-bottom: 12px;
   }
   > ul > li p,
-  ul > li a {
+  ul > li > p > a {
     font-size: 12px;
     color: var(--black);
   }
@@ -95,4 +91,29 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 100%;
+`;
+
+const IconWrap = styled.li`
+  /* display: flex; */
+  div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    a {
+      text-align: center;
+      width: 50%;
+      padding: 8px 0;
+      border-radius: 26px;
+      background-color: var(--black);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 12px;
+    }
+    a:last-child {
+      /* background-color: #ea531e; */
+      background-color: #eee;
+      color: var(--black);
+    }
+  }
 `;

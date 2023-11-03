@@ -64,6 +64,9 @@ const Container = styled.nav`
   width: calc(100% - 85.68%);
   height: 100%;
   align-items: center;
+  a {
+    cursor: pointer;
+  }
   h1 {
     margin-top: 100px;
     margin-bottom: 74px;
