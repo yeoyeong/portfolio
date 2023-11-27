@@ -19,19 +19,20 @@ const Home = () => {
   };
 
   const upScroll = () => {
+    if (boxCnt <= -50) return;
     if (scrollCnt <= 50) return;
-    setScrollCnt((prev) => prev - 5);
+    setScrollCnt((prev) => prev - 10);
     if (scrollCnt > 90 && boxCnt < 50) {
-      setBoxCnt((prev) => prev + 10);
+      setBoxCnt((prev) => prev + 20);
     }
   };
 
   const downScroll = () => {
     if (scrollCnt <= 170) {
-      setScrollCnt((prev) => prev + 5);
+      setScrollCnt((prev) => prev + 10);
     }
     if (scrollCnt > 90 && boxCnt > -50) {
-      setBoxCnt((prev) => prev - 10);
+      setBoxCnt((prev) => prev - 20);
     }
   };
 

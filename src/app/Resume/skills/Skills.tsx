@@ -59,7 +59,7 @@ const Skills = () => {
                   alt="nextjs_icon"
                 />
               </span>
-              Next13
+              Next14
             </li>
             <li>
               <span>
