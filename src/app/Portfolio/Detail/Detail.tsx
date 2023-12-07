@@ -1,12 +1,14 @@
 import React, { useMemo, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { portfolioData } from "src/data/portfolioData";
 import styled from "styled-components";
 import { ReactComponent as LeftArrow } from "src/assets/left_arrow_black.svg";
 import { ReactComponent as RightArrow } from "src/assets/right_arrow_black.svg";
+import { ReactComponent as BackIcon } from "src/assets/back_icon.svg";
 const Detail = () => {
   const { id } = useParams();
   const [pageNum, setPageNum] = useState(1);
+  const navigate = useNavigate();
   const content = useMemo(
     () => portfolioData.filter((item) => item.title === id)[0],
     [id]
@@ -25,6 +27,9 @@ const Detail = () => {
   const pageLeftHandler = () => {
     if (pageNum <= 1) return;
     setPageNum((prev) => prev - 1);
+  };
+  const pageBackHadnler = () => {
+    navigate(-1);
   };
   const Page01 = () => {
     return (
@@ -113,7 +118,12 @@ const Detail = () => {
   };
   return (
     <Container>
-      <h2 className="title">{content.title}</h2>
+      <div className="header">
+        <button onClick={pageBackHadnler}>
+          <BackIcon />
+        </button>
+        <h2>{content.title}</h2>
+      </div>
       <div className="content">
         <VisualArea>
           <img src={content.thumbnail} alt={content.title + "커버사진"}></img>
@@ -164,10 +174,25 @@ const Container = styled.div`
   justify-content: space-between;
   height: 100%;
   padding: 5% 0;
-  .title {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 700;
+  .header {
+    width: 100%;
+    padding: 0 30px;
+    button{
+      width:40px;
+      border:none;
+      background-color:transparent;
+      cursor:pointer;
+      svg {
+      width:100%
+      text-align: left;
+    }
+    }
+    
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+    }
   }
   .content {
     display: flex;
