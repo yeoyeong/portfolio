@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import ImageComponent from "src/components/ImageComponent";
 import {
   IndexBoxAnimation,
   curtainAnimationLeft,
   curtainAnimationRight,
+  scrollDownAnimation,
 } from "src/styles/animaition/fadeIn";
 import styled, { css } from "styled-components";
 
@@ -53,6 +55,10 @@ const Home = () => {
         <VisunalContainer>
           <h2 className="on-front">KIMYEONGHO</h2>
           <p className="on-front">WEB DEVELOPER</p>
+          <ImageComponent
+            imageUrl="/img/icon/scroll-down.svg"
+            alt="스크롤 다운 아이콘"
+          />
         </VisunalContainer>
         <TextContainer>
           <h2 className="on-back">KIMYEONGHO</h2>
@@ -140,6 +146,14 @@ const VisunalContainer = styled.div`
   position: relative;
   overflow: hidden;
   z-index: 2;
+  > img {
+    position: absolute;
+    width: 50px;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation: ${scrollDownAnimation} 1s infinite;
+  }
 `;
 const TextContainer = styled.div`
   width: 600px;

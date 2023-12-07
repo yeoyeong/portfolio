@@ -11,19 +11,27 @@ const PortfolioMain = () => {
         {portfolioData.map(
           ({
             title,
-            img,
+            setting,
+            thumbnail,
             year,
           }: {
             title: string;
-            img: string;
+            setting: string;
+            thumbnail: string;
             year: string;
           }) => (
             <li key={title}>
               <Link to={"/portfolio/" + title}>
                 <div className="imageWrap">
-                  <ImageComponent imageUrl={img} alt={title + "커버사진"} />
+                  <ImageComponent
+                    imageUrl={thumbnail}
+                    alt={title + "커버사진"}
+                  />
                 </div>
-                <p className="title">{title}</p>
+                <p className="title">
+                  <span>{"[" + setting + "]"}</span>
+                  {title}
+                </p>
                 <p className="make_year">
                   <span>{year}</span>
                 </p>
@@ -61,7 +69,9 @@ const PortfolioContentsWrap = styled.ul`
     width: 100%;
     cursor: pointer;
     .imageWrap {
-      height: 150px;
+      display: flex;
+      justify-content: center;
+      height: 20vh;
       overflow: hidden;
       span {
         width: 100%;
@@ -70,7 +80,7 @@ const PortfolioContentsWrap = styled.ul`
       }
       img {
         width: 100%;
-        object-fit: cover;
+        /* object-fit: cover; */
         border-radius: 5px 5px 0 0;
       }
     }
@@ -81,8 +91,12 @@ const PortfolioContentsWrap = styled.ul`
     .title {
       margin-top: 10px;
       margin-bottom: 13px;
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 400;
+      span {
+        font-weight: 600;
+        color: var(--background);
+      }
     }
     .make_year {
       span {

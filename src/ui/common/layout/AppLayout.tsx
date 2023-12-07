@@ -39,9 +39,9 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
   };
 
   const upScroll = () => {
-    if (pathname.includes("profile")) {
-      return navigate("/");
-    }
+    // if (pathname.includes("profile")) {
+    //   return navigate("/");
+    // }
     if (pathname.includes("skills")) {
       return navigate("/resume/profile");
     }

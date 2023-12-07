@@ -26,3 +26,13 @@ to{
   transform:translate(57%,-50%)
 }
 `;
+
+export const scrollDownAnimation = keyframes`
+0%{
+  transform:translate(-50%, 0%);
+}
+50%{
+  transform:translate(-50%, 20%);
+}
+
+`;

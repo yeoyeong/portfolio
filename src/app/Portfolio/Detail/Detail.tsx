@@ -1,10 +1,12 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { portfolioData } from "src/data/portfolioData";
 import styled from "styled-components";
-
+import { ReactComponent as LeftArrow } from "src/assets/left_arrow_black.svg";
+import { ReactComponent as RightArrow } from "src/assets/right_arrow_black.svg";
 const Detail = () => {
   const { id } = useParams();
+  const [pageNum, setPageNum] = useState(1);
   const content = useMemo(
     () => portfolioData.filter((item) => item.title === id)[0],
     [id]
@@ -15,14 +17,20 @@ const Detail = () => {
     }),
     []
   );
-  return (
-    <Container>
-      <VisualArea>
-        <img src={content.img} alt={content.title + "커버사진"}></img>
-      </VisualArea>
-      <TextArea>
-        <b>Project Name</b>
-        <p>{content.title}</p>
+
+  const pageRightHandler = () => {
+    if (pageNum >= 2) return;
+    setPageNum((prev) => prev + 1);
+  };
+  const pageLeftHandler = () => {
+    if (pageNum <= 1) return;
+    setPageNum((prev) => prev - 1);
+  };
+  const Page01 = () => {
+    return (
+      <>
+        {/* <b>Project Name</b>
+          <p>{content.title}</p> */}
         <b>Introduce</b>
         <p>{content.info}</p>
         <b>Year</b>
@@ -47,50 +55,136 @@ const Detail = () => {
         ) : (
           <p>-</p>
         )}
-        {content.framework && (
+        {content.setting && (
           <>
-            <b>FrameWork</b>
-            <p style={colorRed}>{content.framework}</p>
+            <b>setting</b>
+            <p style={colorRed}>{content.setting}</p>
           </>
         )}
         <b>Language</b>
         <p style={colorRed}>{content.language}</p>
-        <b>Front-end</b>
+        <b>skills</b>
         <ul>
-          {content.front_end.map((el, i) => (
+          {content.skills.map((el, i) => (
             <li key={i}>
               <p>
                 {el}
-                {content.front_end.length - 1 !== i && " / "}
+                {content.skills.length - 1 !== i && " / "}
               </p>
             </li>
           ))}
         </ul>
         <b>Deployment</b>
         <ul>
-          {content.Deployment.map((el, i) => (
+          {content.deployment.map((el, i) => (
             <li key={i}>
               <p>
                 {el}
-                {content.Deployment.length - 1 !== i && " /"}
+                {content.deployment.length - 1 !== i && " /"}
               </p>
             </li>
           ))}
         </ul>
-      </TextArea>
+      </>
+    );
+  };
+  const Page02 = () => {
+    return (
+      <>
+        <b>Development</b>
+        <ul className="page02-list_style">
+          {content.development.map((el) => (
+            <li>
+              {el.title}
+              <ul className="page02-sub-list_style">
+                {el.subMenu && el.subMenu.map((el) => <li>{el}</li>)}
+              </ul>
+            </li>
+          ))}
+        </ul>
+        <b>Reuslt</b>
+        <ul className="page02-list_style">
+          {content.result.map((el) => (
+            <li>{el}</li>
+          ))}
+        </ul>
+      </>
+    );
+  };
+  return (
+    <Container>
+      <h2 className="title">{content.title}</h2>
+      <div className="content">
+        <VisualArea>
+          <img src={content.thumbnail} alt={content.title + "커버사진"}></img>
+        </VisualArea>
+        <TextArea>
+          {pageNum === 1 ? <Page01 /> : pageNum === 2 ? <Page02 /> : ""}
+        </TextArea>
+      </div>
+      <div className="button_wrap">
+        <button onClick={pageLeftHandler}>
+          <LeftArrow fill={pageNum === 1 ? "gray" : "#5b659a"} />
+        </button>
+        <button onClick={pageRightHandler}>
+          <RightArrow fill={pageNum === 2 ? "gray" : "#5b659a"} />
+        </button>
+      </div>
     </Container>
   );
 };
 
 export default Detail;
 
+// deployment: ["Vercel"],
+//     development: [
+//       {
+//         title: "로그인, 회원가입",
+//         subMenu: [],
+//       },
+//       {
+//         title: "투두 리스트 CRUD",
+//         subMenu: [],
+//       },
+//       {
+//         title: "Drag&Drop",
+//         subMenu: [],
+//       },
+//     ],
+//     result: [
+//       "Vercel을 사용한 next 배포",
+//       "React Components 에서 서버 API 직접 호출",
+//       "next14의 라이프 사이클에 대한 경험",
+//       "Drag&Drop 으로 TODO 상태 업데이트 구현",
+//     ],
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 10%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 5% 0;
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+  }
+  .button_wrap {
+    display: flex;
+    gap: 6px;
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
 `;
 
 const VisualArea = styled.div`
@@ -126,5 +220,18 @@ const TextArea = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+  }
+  .page02-list_style {
+    padding-top: 6px;
+    padding-left: 24px;
+    list-style: inside;
+    list-style-position: outside;
+    li {
+      font-size: 14px;
+    }
+  }
+  .page02-sub-list_style {
+    list-style: outside circle;
+    padding: 6px 0 3px 16px;
   }
 `;
